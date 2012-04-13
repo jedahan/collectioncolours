@@ -15,7 +15,7 @@ if (!path) {
 }
 
 var img = new Image;
-var imageInfo = {colours: [], url: path, year: 0};
+var imageInfo = {"colours": [], "url": path, "year": 0};
 
 img.onload = function(){
   canvas.width = img.width;
@@ -46,7 +46,7 @@ function parseDate() {
   fs.readFile(path + '.txt', function(err, data) {
       parser.parseString(data, function (err, result) {
           imageInfo.year = result['@'].object_date_begin;
-          console.log(imageInfo);
+          console.log(JSON.stringify(imageInfo) + ',');
       });
   });
 }
