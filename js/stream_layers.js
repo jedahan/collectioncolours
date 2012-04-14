@@ -31,3 +31,18 @@ function stream_waves(n, m) {
 function stream_index(d, i) {
   return {x: i, y: Math.max(0, d)};
 }
+
+function waves(n, m) {
+  return d3.range(n).map(function(i) {
+    return d3.range(m).map(function(j) {
+        var x = 20 * j / m - i / 3;
+        return x > 0 ? 2 * x * Math.exp(-.5 * x) : 0;
+      });
+    });
+}
+
+function stream_colours() {
+  $.getJSON("hey.json", function(json) {
+    console.log(json); // this will show the info it in firebug console
+  });
+}
