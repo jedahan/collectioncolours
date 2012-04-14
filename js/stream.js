@@ -1,7 +1,7 @@
 var n = 20, // number of layers
     m = 200, // number of samples per layer
-    data0 = d3.layout.stack().offset("wiggle")(stream_index(n, m)),
-    data1 = d3.layout.stack().offset("wiggle")(stream_index(n, m)),
+    data0 = d3.layout.stack().offset("wiggle")(stream_layers(n,m)),
+    data1 = d3.layout.stack().offset("wiggle")(stream_layers(n,m)),
     color = d3.interpolateRgb("#aad", "#556");
 
 var w = 960,
@@ -26,7 +26,12 @@ var vis = d3.select("#chart")
 vis.selectAll("path")
     .data(data0)
   .enter().append("path")
-    .style("fill", function() { return color(Math.random()); })
+    .style("fill", function(d) {
+      if (d > 15) {   //Threshold of 15
+          return "red";
+      } else {
+          return "black";
+      }})
     .attr("d", area);
 
 function transition() {
