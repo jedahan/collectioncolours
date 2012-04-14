@@ -17,7 +17,6 @@ mapR({
   
 function check(err,results){
 	if(!err) {
-		console.log(results);
 		mapR({
 		  on: results,
 		  map: function(emit, value, key) {
@@ -42,11 +41,11 @@ function sum(collection, value, key){
 }
 
 function add(collection, year, color){
-    collection = collection || {};
-    collection[year] = collection[year] || [];
-    collection[year][color] = collection[year][color] || 0;
-	collection[year][color] += 1;
-    return collection;
+  collection = collection || {};
+  collection[year] = collection[year] || [];
+  collection[year][color] = collection[year][color] || 0
+  collection[year][color] += 1;
+  return collection;
 }
 
 function log(err, results) {
