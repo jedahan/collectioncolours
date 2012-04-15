@@ -11,5 +11,10 @@ A visualisation of color usage over time. Thanks to the Brooklyn Museum's awesom
 
 ## ToDo
 
-  This data should be visualised using a streamgraph or stacked bar graph.
-  See specific items in github issues
+  Create streamgraph and stacked bar graph
+  Switch data dump to json
+  Hit live api
+
+## Requirements
+
+  Data dump of images from brooklyn museum + XML version of the metadata.
