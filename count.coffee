@@ -11,7 +11,7 @@ colorByYear = (emit, image, key) ->
   emit(image.colors, image.year) if image.year > 0
   emit.next()
 
-colorFrequence = (collection, colors, year) ->
+colorFrequency = (collection, colors, year) ->
   collection ||= {}
   collection[year] ||= []
   collection[year][color] ||= 0
