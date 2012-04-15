@@ -1,42 +1,25 @@
 imageInfo = require './imageInfo'
 mapR = require 'map-reduce'
 
-# turn image information into a list of years and frequencies
 mapR 
   on: imageInfo
-  map: (emit, image, key) ->
-    emit(image.colors, image.year) if image.year > 0
-    emit.next()
-  
-  reduce: sum
-  done: check
+  map: colorByYear
+  reduce: colorFrequency
+  done: log
 
-check = (err, results) ->
-  unless err
-    mapR 
-      on: results
-      map: (emit, values, key) ->
-        emit(key, value) for value in values
-        emit.next()
-      
-      reduce: add
-      done: log
+colorByYear = (emit, image, key) ->
+  emit(image.colors, image.year) if image.year > 0
+  emit.next()
 
-sum = (collection, colors, year) ->
-  collection ||= {}
-  collection[year] ||= []
-  collection[year].push color for color in colors
-  collection
-
-add = (collection, year, color) ->
+colorFrequence = (collection, colors, year) ->
   collection ||= {}
   collection[year] ||= []
   collection[year][color] ||= 0
-  collection[year][color] += 1
+  collection[year][color]++
   collection
 
 log = (err, results) ->
   if err
     console.log err
   else
-    console.log results
+    console.log JSON.stringify results

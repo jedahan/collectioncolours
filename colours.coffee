@@ -19,7 +19,7 @@ parseDate = ->
   parser = new xml2js.Parser()
 
   fs = require "fs"
-  fs.readFile path + ".txt", (err, data) ->
+  fs.readFile path + ".xml", (err, data) ->
     parser.parseString data, (err, result) ->
       imageInfo.year = result["@"].object_date_begin
       console.log JSON.stringify(imageInfo) + ","
