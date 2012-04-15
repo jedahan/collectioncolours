@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
-echo '[' > imageInfo.json
-for image in img/*/*jpg; do ./colours.js $image >> imageInfo.json; done
-echo ']' >> imageInfo.json
+local dumpfile='dump/ImageInfo.json'
+echo '[' > $dumpfile
+for image in data/*jpg; do ./colours.js $image >> $dumpfile; done
+echo ']' >> $dumpfile
