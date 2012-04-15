@@ -1,3 +1,15 @@
-updatejson.sh calls colors.js which takes color and date info from the images
-count.js takes that info and does a mapreduce to find out how often colors were used in certain years
-the goal is to make a streamgraph
+# Collection Colours
+
+A visualisation of color usage over time. Thanks to the Brooklyn Museum's awesome data.
+
+## Usage
+  `updatejson.sh` is a small wrapper to call `colours.js`
+
+  `colours.js` takes an image and its metadata and gets the 5 most used colors
+
+  `count.js` mapreduces the output from `colours.js` and dumps color frequency for the time periods
+
+## ToDo
+
+  This data should be visualised using a streamgraph or stacked bar graph.
+  See specific items in github issues
