@@ -3,17 +3,18 @@
 A visualisation of color usage over time. Thanks to the Brooklyn Museum's awesome data.
 
 ## Usage
-  `updatejson.sh` is a small wrapper to call `colours.js`
+  `updatejson` is a small wrapper to call `colours`
 
-  `colours.js` takes an image and its metadata and gets the 5 most used colors
+  `colours` takes an image and its metadata and gets the 5 most used colors
 
-  `count.js` mapreduces the output from `colours.js` and dumps color frequency for the time periods
+  `count` mapreduces the output from `colours` and dumps color frequency for the time periods
 
 ## ToDo
 
   Create streamgraph and stacked bar graph
   Switch data dump to json
   Hit live api
+  Get rid of updatejson (handle directory entries in colours.coffee)
 
 ## Requirements
 
